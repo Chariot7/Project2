@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Current Wish</h2> 
+    <h3><%= wish.selfWish %></h3>
+    <h3><%= wish.poolWish %></h3>
+
+    <h1>change your wish below!</h1>
+ <form action="/wishes/pool/<%= wish._id %>?_method=PUT" method="POST">
+     <label>Your Wish:
+         <input type="text" name="selfWish">
+       </label><br>
+         <label>Pool Wish:
+           <input type="text" name="poolWish">
+         </label><br>
+    <input type="submit" value="Add Details">
+ </form>
+ </body>
+</html>
