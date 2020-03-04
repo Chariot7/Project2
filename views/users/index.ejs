@@ -1,31 +1,16 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Wishpool</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1>Wishpool</h1>
-    <a href="/users/reflection" class="brand-logo left">Reflection</a>
-    <a href="/users/wishbank" class="brand-logo left">Wish Bank</a>
-    <!-- new html below -->
-    <ul class="right">
-      <li>
-        <% if (user) { %>
+<%- include('../partials/header') %>
+  
+      <% if (user) { %>
         <p>Welcome <%= user.name %></p>
-        <a href="/logout"><i class="material-icons left"></i>Log Out</a>
-      <% } else { %>
-        <a href="/auth/google"><i class="material-icons left"><!--vpn_key--></i>Login with Google</a>
-      <% } %>
-      </li>
-    </ul>
+        <% } %>
+
     <form id="add-wish" method="POST"
   action="/wishes/pool">
-  <label>Your Wish:
-  <input type="text" name="selfWish">
+  <label>Your Wish:<br>
+  <textarea name="selfWish" id="" cols="30" rows="10"></textarea>
 </label><br>
-  <label>Pool Wish:
-    <input type="text" name="poolWish">
+<label>Pool Wish:<br>
+  <textarea name="poolWish" id="" cols="30" rows="10"></textarea>
   </label><br>
   <input type="submit" value="Add Details">
 </form>

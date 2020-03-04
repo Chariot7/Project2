@@ -6,5 +6,5 @@ const wishesCtrl = require('../controllers/wishes');
 router.post('/pool', wishesCtrl.newWish);
 router.get('/pool/:id', wishesCtrl.showWish)
 router.put('/pool/:id', wishesCtrl.edit)
-
+router.delete('/pool/:id', wishesCtrl.delete)
 module.exports = router;

@@ -1,22 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<%- include('../partials/header') %>
+    
     <h2>Current Wish</h2> 
-    <h3><%= wish.selfWish %></h3>
-    <h3><%= wish.poolWish %></h3>
+    <h3>Your Wish:</h3>
+    <h4><%= wish.selfWish %></h4>
+    <h3>Pool Wish:</h3>
+    <h4><%= wish.poolWish %></h4>
+    <form action="/wishes/pool/<%= wish._id %>?_method=DELETE"
+      id="delete-form" method="POST">
+      <button type="submit">Delete Wish</button>
+    </form>
 
-    <h1>change your wish below!</h1>
+    <h2>change your wish below!</h2>
  <form action="/wishes/pool/<%= wish._id %>?_method=PUT" method="POST">
-     <label>Your Wish:
-         <input type="text" name="selfWish">
+     <label>Your Wish:<br>
+        <textarea name="selfWish" id="" cols="30" rows="10"></textarea>
        </label><br>
-         <label>Pool Wish:
-           <input type="text" name="poolWish">
+         <label>Pool Wish:<br>
+            <textarea name="poolWish" id="" cols="30" rows="10"></textarea>
          </label><br>
     <input type="submit" value="Add Details">
  </form>

@@ -4,12 +4,20 @@ const User = require('../models/user')
 module.exports = {
     newWish,
     edit,
-    showWish
+    showWish,
+    delete: deleteWish,
 }
+
+function deleteWish(req, res) {
+    console.log('delete start')
+    CurWish.deleteOne(req.params.id);
+    res.redirect('/users');
+    console.log('delete end')
+  }
 
 function showWish(req, res){
     CurWish.findById(req.params.id, function(err, wish){
-        res.render('wishes/show', {wish})
+        res.render('wishes/show', {wish, user: req.user})
     })
 }
 
@@ -28,7 +36,7 @@ function newWish(req, res) {
                 user.save(function (e) {
 
                     if (err) return res.redirect('/users');
-                    res.render('wishes/show', { wish });
+                    res.render('wishes/show', { wish, user: req.user });
                 })
             });
         })

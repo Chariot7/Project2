@@ -1,8 +1,44 @@
 body {
-  padding: 50px;
+  margin: .1em;
+  padding: .1em;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+h1 {
+  font-family: 'Marcellus', serif;
+  letter-spacing: .08em;
+  font-size: 4em;
+  margin: .1em;
+  padding-left: .25em;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: white;
+  position: fixed;
+  top: .1em;
+  right: 1%
+  /* width: 100%; */
+}
+.nav {
+  float: right;
+}
+.nav-link {
+  display: block;
+  padding: 31px 15px;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  background-color: white;
+  font-size: 1.4em;
+  /* border-left: 1px solid #bbb; */
+}
+
+.nav a:hover {
+  background-color: #eae7e7;
 }
