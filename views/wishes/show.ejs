@@ -1,38 +1,41 @@
 <%- include('../partials/header') %>
 <div id="rect2">
+   <div id="rect2inner">
    <form action="/wishes/<%= wish._id %>?_method=DELETE" id="delete-form" method="POST">
+      <h2 id="p2h2">Current Wish</h2> 
    <label class="wishLabel">Pool Wish:<br>
     <div>
-     <textarea name="poolWish" id="poolWish2" cols="30" rows="10"></textarea>
+     <h4><%= wish.poolWish %></h4>
+   </div>
+</label><br>
+<label class="wishLabel">Your Wish:<br>
+   <div> 
+      <h4><%= wish.selfWish %></h4>
    </div>
    </label><br>
-   <label class="wishLabel">Your Wish:<br>
-    <div> 
-     <textarea name="selfWish" id="selfWish2" cols="30" rows="10"></textarea>
+   <button type="submit">Delete Wish</button>
+   <div>
+   </form>
+   <h2>Change Your Wish Below</h2>
+      <form action="/wishes/<%= wish._id %>?_method=PUT" method="POST">
+          <label>Your Wish:<br>
+             <textarea name="selfWish" id="" cols="30" rows="10"></textarea>
+            </label><br>
+              <label>Pool Wish:<br>
+                 <textarea name="poolWish" id="" cols="30" rows="10"></textarea>
+              </label><br>
+         <input type="submit" value="Add Details">
+      </form>
    </div>
-   </label><br>
-   <div id="button2">
-   <input id="btn2" type="submit" value="Add Details">
    </div>
- </form>
-</div>
-    <h2>Current Wish</h2> 
-    <h3>Your Wish:</h3>
-    <h4><%= wish.selfWish %></h4>
-    <h3>Pool Wish:</h3>
-    <h4><%= wish.poolWish %></h4>
-      <button type="submit">Delete Wish</button>
-    </form>
-
-    <h2>change your wish below!</h2>
- <form action="/wishes/<%= wish._id %>?_method=PUT" method="POST">
-     <label>Your Wish:<br>
-        <textarea name="selfWish" id="" cols="30" rows="10"></textarea>
-       </label><br>
-         <label>Pool Wish:<br>
-            <textarea name="poolWish" id="" cols="30" rows="10"></textarea>
-         </label><br>
-    <input type="submit" value="Add Details">
- </form>
+   </div>
+ <div id= "outerInfo2">
+   <div id="info2">
+      <div class="circle"></div>
+    <h2>Full Moon in Virgo</h2>
+    <h3>There are <%=user.wishes.length %> wishes in this Pool</h3>
+   </div>
+   </div>
+   </div>
  </body>
 </html>

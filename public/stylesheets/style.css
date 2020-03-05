@@ -15,21 +15,37 @@ h2 {
 .wishLabel {
   text-align: left;
 }
-#rect {
+#rect, #rect2, #rect3 {
   background-color: #E3E2E2;
   height: 77%;
   width: 33%;
   position: fixed;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
   float: right;
   right: 4%;
   top: 16%;
   border: 1px solid rgb(7, 6, 6);
   text-align: left;
 }
+#p2h2 {
+  margin: 0px;
+}
 
+#rect {
+  align-items: flex-end;
+}
+#rect2 {
+  align-items: center;
+}
+#rect3 {
+  align-items: center;
+  flex-direction: column;
+}
+#rect2inner {
+  height: 90%;
+  width: 90%;
+}
 a {
   color: #00B7FF;
 }
@@ -90,12 +106,16 @@ textarea{
 .nav a:hover {
   background-color: #eae7e7;
 }
-#circle {
+.circle {
   background: #eae7e7;
   border-radius: 50%;
   width: 15vh;
   height: 15vh;
   border: 1px solid rgb(7, 6, 6);
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 #add-wish {
   width: 93%;
@@ -115,7 +135,7 @@ textarea{
 .words {
   padding-left: 10px;
 }
-#info {
+#info, #info2, #info3 {
   width: 55%;
   text-align: center;
   align-items: center;
@@ -124,7 +144,7 @@ textarea{
   top: 16%;
   left: 4%;
 }
-#outerInfo {
+#outerInfo, #outerInfo2, #outerInfo3 {
   height: 77%;
   width: 54%;
   position: fixed;
@@ -136,6 +156,7 @@ textarea{
   top: 16%;
   border: 1px solid rgb(7, 6, 6);
   text-align: left;
+  overflow-y: auto;
 }
 .words {
   font-size: 2.75vh;
@@ -148,12 +169,23 @@ textarea{
 #lastWord {
   padding-right: 4.5vh;
 }
-#description {
-  font-size: 2.1vh;
+#moonDescription {
+  font-size: 2.3vh;
+}
+.description {
+  font-size: 1.8vh;
 }
 #selfWish{
   height: 50%;
 }
 #poolWish {
   height: 15%;
+}
+img {
+  height: 12vh;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 1.7vh 1.5vh 1.5vh 2.7vh;
 }

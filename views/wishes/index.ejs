@@ -1,10 +1,18 @@
 <%- include('../partials/header') %>
 
-    THIS IS THE POOL
-    <% wishes.forEach(w => { %>
-        
-        <li><%= w.poolWish %></li>
-    
-    <% }) %>
+<div id= "outerInfo3">
+    <div id="info3">
+        THIS IS THE POOL
+        <% wishes.forEach(w => { %>
+            <li><%= w.poolWish %></li>
+        <% }) %>
+    </div>
+    </div>
+    <div id="rect3">
+        <h2>Wish Display</h2>
+        <div>
+        <h3>There are <%= wishes.length%> wishes in this Bank</h3>
+        </div>
+    </div>
 </body>
 </html>

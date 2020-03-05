@@ -1,21 +1,24 @@
 <%- include('../partials/header') %>
   
       <% if (user) { %>
-        <p id="welcome">Welcome <%= user.name %></p>
+        
         
         <div id="rect">
         <form id="add-wish" method="POST"
         action="/wishes">
-        <label class="wishLabel">Pool Wish:<br>
-         <div>
-          <textarea name="poolWish" id="poolWish" cols="30" rows="10"></textarea>
-        </div>
-        </label><br>
-        <label class="wishLabel">Your Wish:<br>
+        <h3>Instructions: </h3>
+        <p class="description">Write a wish or goal in the present tense as if the desired outcome has already happened. Focus more on the experiential quality of the experience of sucess moreso than the means of getting there. </p>
+        <p class="description">Instead of writing: "I want a job at Google." </p> 
+        <p class="description">Better Practice:</p>
+        <p class="description">Ex. "I work in a stimulating environment where I am appreciated and respected for what I contribute. I feel abundant and confident in my ability to provide for those that depend on me."</p>
+          <h3>Pool Wish: </h3>
+          <div>
+            <textarea name="poolWish" id="poolWish" cols="30" rows="10"></textarea>
+          </div>
+        <h3>Your Wish: </h3>
          <div> 
           <textarea name="selfWish" id="selfWish" cols="30" rows="10"></textarea>
         </div>
-        </label><br>
         <div id="button">
         <input id="btn" type="submit" value="Add Details">
         </div>
@@ -23,15 +26,17 @@
     </div>
     <div id= "outerInfo">
     <div id="info">
-    <div id="circle"></div>
+      <div class="circle">
+        <img src="/images/Virgo.png" alt="virgo">
+    </div>
     <h2>Full Moon in Virgo</h2>
     <div id="keywords">
-    <li id="words">Diligence    </li>
-    <li class="words">Diligence    </li>
-    <li class="words">Diligence    </li>
-    <li id="lastWord" class="words">Diligence    </li>
+    <li id="words">Diligence</li>
+    <li class="words">Organization</li>
+    <li class="words">Focus</li>
+    <li id="lastWord" class="words">Solitude</li>
     </div>
-    <p id="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita hic nobis tempore autem possimus provident. Itaque non magnam exercitationem recusandae ullam nulla maiores nesciunt ea similique, in, et debitis ratione!</p>
+    <p id="moonDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita hic nobis tempore autem possimus provident. Itaque non magnam exercitationem recusandae ullam nulla maiores nesciunt ea similique, in, et debitis ratione!</p>
     </div>
     </div>
       <% } else { %>
