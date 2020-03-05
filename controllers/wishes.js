@@ -6,6 +6,13 @@ module.exports = {
     edit,
     showWish,
     delete: deleteWish,
+    index
+}
+
+function index(req, res){
+    CurWish.find({}, function(err, wishes){
+        res.render('wishes/index', {wishes, user: req.user})
+    })
 }
 
 function deleteWish(req, res) {
@@ -24,11 +31,8 @@ function showWish(req, res){
 function newWish(req, res) {
     User.findById(req.user._id)
         .exec(function (err, user) {
-
-            req.body.userId = req.user._id
             const wish = new CurWish(req.body);
-            wish.user = req.user._id;
-            user.posts.push(wish)
+            user.wishes.push(wish)
             console.log(wish);
             console.log(req.user)
             // req.user.save(wish)
@@ -36,7 +40,8 @@ function newWish(req, res) {
                 user.save(function (e) {
 
                     if (err) return res.redirect('/users');
-                    res.render('wishes/show', { wish, user: req.user });
+                    // res.render('wishes/show', { wish, user: req.user });
+                    res.redirect(`/wishes/${wish._id}`);
                 })
             });
         })
@@ -49,6 +54,6 @@ function edit(req, res) {
         //verfies that shoe is owned by user
         console.log("wish wish: ", wish)
         // wish.save(function(err, newWish))
-        res.redirect(`/wishes/pool/${wish._id}`);
+        res.redirect(`/wishes/${wish._id}`);
     });
 }

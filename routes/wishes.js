@@ -3,8 +3,9 @@ const router = express.Router();
 const wishesCtrl = require('../controllers/wishes');
 
 // GET /users/pool
-router.post('/pool', wishesCtrl.newWish);
-router.get('/pool/:id', wishesCtrl.showWish)
-router.put('/pool/:id', wishesCtrl.edit)
-router.delete('/pool/:id', wishesCtrl.delete)
+router.get('/', wishesCtrl.index);
+router.post('/', wishesCtrl.newWish);
+router.get('/:id', wishesCtrl.showWish)
+router.put('/:id', wishesCtrl.edit)
+router.delete('/:id', wishesCtrl.delete)
 module.exports = router;

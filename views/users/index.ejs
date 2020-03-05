@@ -1,18 +1,43 @@
 <%- include('../partials/header') %>
   
       <% if (user) { %>
-        <p>Welcome <%= user.name %></p>
-        <% } %>
+        <p id="welcome">Welcome <%= user.name %></p>
+        
+        <div id="rect">
+        <form id="add-wish" method="POST"
+        action="/wishes">
+        <label class="wishLabel">Pool Wish:<br>
+         <div>
+          <textarea name="poolWish" id="poolWish" cols="30" rows="10"></textarea>
+        </div>
+        </label><br>
+        <label class="wishLabel">Your Wish:<br>
+         <div> 
+          <textarea name="selfWish" id="selfWish" cols="30" rows="10"></textarea>
+        </div>
+        </label><br>
+        <div id="button">
+        <input id="btn" type="submit" value="Add Details">
+        </div>
+      </form>
+    </div>
+    <div id= "outerInfo">
+    <div id="info">
+    <div id="circle"></div>
+    <h2>Full Moon in Virgo</h2>
+    <div id="keywords">
+    <li id="words">Diligence    </li>
+    <li class="words">Diligence    </li>
+    <li class="words">Diligence    </li>
+    <li id="lastWord" class="words">Diligence    </li>
+    </div>
+    <p id="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita hic nobis tempore autem possimus provident. Itaque non magnam exercitationem recusandae ullam nulla maiores nesciunt ea similique, in, et debitis ratione!</p>
+    </div>
+    </div>
+      <% } else { %>
+        <p>Log In to Continue
+        </p>
+      <% } %>
 
-    <form id="add-wish" method="POST"
-  action="/wishes/pool">
-  <label>Your Wish:<br>
-  <textarea name="selfWish" id="" cols="30" rows="10"></textarea>
-</label><br>
-<label>Pool Wish:<br>
-  <textarea name="poolWish" id="" cols="30" rows="10"></textarea>
-  </label><br>
-  <input type="submit" value="Add Details">
-</form>
   </body>
 </html>

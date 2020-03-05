@@ -10,7 +10,7 @@
    <h2>Current Wish</h2> 
    <h3><%= wish.selfWish %></h3>
    <h3><%= wish.poolWish %></h3>
-<form action="/wishes/pool/<%= wish._id %>" method="POST">
+<form action="/wishes/<%= wish._id %>" method="POST">
     <label>Your Wish:
         <input type="text" name="selfWish">
       </label><br>

@@ -1,17 +1,31 @@
 <%- include('../partials/header') %>
-    
+<div id="rect2">
+   <form action="/wishes/<%= wish._id %>?_method=DELETE" id="delete-form" method="POST">
+   <label class="wishLabel">Pool Wish:<br>
+    <div>
+     <textarea name="poolWish" id="poolWish2" cols="30" rows="10"></textarea>
+   </div>
+   </label><br>
+   <label class="wishLabel">Your Wish:<br>
+    <div> 
+     <textarea name="selfWish" id="selfWish2" cols="30" rows="10"></textarea>
+   </div>
+   </label><br>
+   <div id="button2">
+   <input id="btn2" type="submit" value="Add Details">
+   </div>
+ </form>
+</div>
     <h2>Current Wish</h2> 
     <h3>Your Wish:</h3>
     <h4><%= wish.selfWish %></h4>
     <h3>Pool Wish:</h3>
     <h4><%= wish.poolWish %></h4>
-    <form action="/wishes/pool/<%= wish._id %>?_method=DELETE"
-      id="delete-form" method="POST">
       <button type="submit">Delete Wish</button>
     </form>
 
     <h2>change your wish below!</h2>
- <form action="/wishes/pool/<%= wish._id %>?_method=PUT" method="POST">
+ <form action="/wishes/<%= wish._id %>?_method=PUT" method="POST">
      <label>Your Wish:<br>
         <textarea name="selfWish" id="" cols="30" rows="10"></textarea>
        </label><br>
