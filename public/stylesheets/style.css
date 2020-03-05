@@ -189,3 +189,6 @@ img {
   flex-direction: column;
   padding: 1.7vh 1.5vh 1.5vh 2.7vh;
 }
+#liked {
+ background-color: yellow;
+}

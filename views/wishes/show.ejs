@@ -1,41 +1,83 @@
 <%- include('../partials/header') %>
 <div id="rect2">
    <div id="rect2inner">
-   <form action="/wishes/<%= wish._id %>?_method=DELETE" id="delete-form" method="POST">
-      <h2 id="p2h2">Current Wish</h2> 
-   <label class="wishLabel">Pool Wish:<br>
-    <div>
-     <h4><%= wish.poolWish %></h4>
+      
+         <% if(!!wisher){ %>
+
+            <h2 id="p2h2"><%= wisher.name %>'s Current Wish</h2>
+         <% } else { %>
+
+         <% } %>
+         <label class="wishLabel">Pool Wish:<br>
+            <div>
+               <h4><%= wish.poolWish %></h4>
+            </div>
+         </label><br>
+         <label class="wishLabel">Your Wish:<br>
+            <div>
+               <h4><%= wish.selfWish %></h4>
+            </div>
+         </label><br>
+         <% if(user){ %>
+
+            <% if(user.wishes.toString().includes(wish._id.toString())){ %>
+               
+               <form action="/wishes/<%= wish._id %>?_method=DELETE" id="delete-form" method="POST">
+                  <input type="submit" value='delete wish'>
+               </form>
+               <!-- <div> -->
+               </form>
+               <h2>Change Your Wish Below</h2>
+               <form action="/wishes/<%= wish._id %>?_method=PUT" method="POST">
+                  <label>Your Wish:<br>
+                     <textarea name="selfWish" id="" cols="30" rows="10"></textarea>
+                  </label><br>
+                  <label>Pool Wish:<br>
+                     <textarea name="poolWish" id="" cols="30" rows="10"></textarea>
+                  </label><br>
+                  <input type="submit" value="Add Details">
+               </form>
+               <% } else { %>
+                  Current Likes: <%= wish.likes.length %>
+                  <!-- INSIDE THIS ELSE STATEMENT, ADD THE OPTION TO "LIKE" A WISH -->
+                  <% if(wish.likes.toString().includes(user._id)) { %>
+                     <form action="/wishes/deleteLike/<%= wish._id %>" method="POST">
+                     <input id = "liked"type="submit" value="Wish Liked!" >
+                  <% } else { %>
+                  <form action="/wishes/addLike/<%= wish._id %>" method="POST">
+                     <input type="submit" value="Like Wish" >
+                  </form>
+                  <%  } %>
+               <% }%>
+               <% }%>
+               </div>
+            </div>
+         </div>
+         <div id="outerInfo2">
+            <div id="info2">
+               <div class="circle">
+                  <img src="/images/Virgo.png" alt="virgo">
+               </div>
+               <h2>Full Moon in Virgo</h2>
+               <% if(user){ %>
+                  <h3>There are <%=user.wishes.length %> wishes in this </h3>
+
+               <% } else { %>
+
+               <% } %>
+               THIS IS THE POOL
+        <% if(wishes.length){ %>
+
+            <% wishes.forEach(w => { %>
+                
+                <li><a href="/wishes/<%= w._id %>"><%= w.poolWish %></a></li>
+            <% }) %>
+        <% } else { %>
+            there are no wishes to display yet!
+        <% } %>
    </div>
-</label><br>
-<label class="wishLabel">Your Wish:<br>
-   <div> 
-      <h4><%= wish.selfWish %></h4>
-   </div>
-   </label><br>
-   <button type="submit">Delete Wish</button>
-   <div>
-   </form>
-   <h2>Change Your Wish Below</h2>
-      <form action="/wishes/<%= wish._id %>?_method=PUT" method="POST">
-          <label>Your Wish:<br>
-             <textarea name="selfWish" id="" cols="30" rows="10"></textarea>
-            </label><br>
-              <label>Pool Wish:<br>
-                 <textarea name="poolWish" id="" cols="30" rows="10"></textarea>
-              </label><br>
-         <input type="submit" value="Add Details">
-      </form>
-   </div>
-   </div>
-   </div>
- <div id= "outerInfo2">
-   <div id="info2">
-      <div class="circle"></div>
-    <h2>Full Moon in Virgo</h2>
-    <h3>There are <%=user.wishes.length %> wishes in this Pool</h3>
-   </div>
-   </div>
-   </div>
- </body>
+</div>
+</div>
+</body>
+
 </html>
