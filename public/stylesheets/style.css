@@ -10,8 +10,18 @@ h1 {
   font-weight: none;
 }
 h2 {
-  font-size: 3.5vh;
+  font-size: 2.4vh;
   margin-bottom: .05vh;
+}
+label {
+  font-size: 1.7vh;
+  font-weight: 500;
+}
+h4 {
+  margin: 10px
+}
+.currMoon {
+  font-size: 3.7vh;
 }
 .wishLabel {
   text-align: left;
@@ -28,6 +38,7 @@ h2 {
   top: 16%;
   border: 1px solid rgb(7, 6, 6);
   text-align: left;
+  padding-left: 1.5vh;
 }
 #p2h2 {
   margin: 0px;
@@ -133,6 +144,9 @@ textarea{
 #btn {
   width: 35%;
   height: 30px;
+  background-color: darkgrey;
+  border: 1px solid rgb(7, 6, 6);
+  font-size: 15px;
 }
 #keywords {
   display: flex;
@@ -140,8 +154,13 @@ textarea{
 .words {
   padding-left: 10px;
 }
+#description {
+  border: 1px solid black;
+  margin-top: 3vh;
+  padding: 1vh 1vh;
+}
 #info, #info2, #info3 {
-  width: 55%;
+  width: 87%;
   text-align: center;
   align-items: center;
   display: flex;
@@ -163,6 +182,9 @@ textarea{
   text-align: left;
   overflow-y: auto;
 }
+.div {
+  overflow-y: auto;
+}
 .words {
   font-size: 2.75vh;
   padding-left: 6vh;
@@ -176,6 +198,7 @@ textarea{
 }
 #moonDescription {
   font-size: 2.3vh;
+  padding: 1vh 5vh;
 }
 .description {
   font-size: 1.8vh;
@@ -205,4 +228,8 @@ img {
 #nextMoon {
   font-size: 3vh;
   margin: 15px 15px 20px 15px;
+}
+.links {
+  font-size: 1.7vh;
+
 }

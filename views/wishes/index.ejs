@@ -6,9 +6,10 @@
             <img src="/images/Virgo.png" alt="virgo">
          </div>
          <h2>Full Moon in Virgo</h2>
+         <p id="nextMoon"></p>
         THIS IS THE POOL
         <% if(wishes.length){ %>
-
+            <h3>There are <%=wishes.length %> wishes in this Pool!</h3>
             <% wishes.forEach(w => { %>
                 
                 <li><a href="/wishes/<%= w._id %>"><%= w.poolWish %></a></li>
@@ -22,12 +23,29 @@
         <h2>Wish Display</h2>
         <div>
         <% if(wishes.length) { %>
-            <h3>There are <%= wishes.length%> wishes in this Bank</h3>
+            <h3>There are <%= wishes.length%> wishes that can be displayed here</h3>
 
         <% } else { %>
             <h3>There are no wishes in this bank</h3>
         <% } %>
         </div>
     </div>
+    <script> 
+        let deadline = new Date("Mar 9, 2020 13:48:00").getTime(); 
+        let x = setInterval(function() { 
+        let now = new Date().getTime(); 
+        let t = deadline - now; 
+        let days = Math.floor(t / (1000 * 60 * 60 * 24)); 
+        let hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60)); 
+        let minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60)); 
+        let seconds = Math.floor((t % (1000 * 60)) / 1000); 
+        document.getElementById("nextMoon").innerHTML = days + "d "  
+        + hours + "h " + minutes + "m " + seconds + "s "; 
+            if (t < 0) { 
+                clearInterval(x); 
+                document.getElementById("demo").innerHTML = "EXPIRED"; 
+            } 
+        }, 200); 
+        </script> 
 </body>
 </html>

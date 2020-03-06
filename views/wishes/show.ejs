@@ -8,14 +8,14 @@
          <% } else { %>
 
          <% } %>
-         <label class="wishLabel">Pool Wish:<br>
+         <h3>Pool Wish:</h3>
             <div>
-               <h4><%= wish.poolWish %></h4>
+               <p><%= wish.poolWish %></p>
             </div>
          </label><br>
-         <label class="wishLabel">Your Wish:<br>
+         <h3 >Your Wish:</h3>
             <div>
-               <h4><%= wish.selfWish %></h4>
+               <p><%= wish.selfWish %></p>
             </div>
          </label><br>
          <% if(user){ %>
@@ -23,29 +23,30 @@
             <% if(user.wishes.toString().includes(wish._id.toString())){ %>
                
                <form action="/wishes/<%= wish._id %>?_method=DELETE" id="delete-form" method="POST">
-                  <input type="submit" value='delete wish'>
+                  <button type="submit" id="btn">Delete Wish</button>
                </form>
                <!-- <div> -->
                </form>
                <h2>Change Your Wish Below</h2>
                <form action="/wishes/<%= wish._id %>?_method=PUT" method="POST">
-                  <label>Your Wish:<br>
-                     <textarea name="selfWish" id="" cols="30" rows="10"></textarea>
-                  </label><br>
-                  <label>Pool Wish:<br>
+                  <h3>Pool Wish:</h3>
                      <textarea name="poolWish" id="" cols="30" rows="10"></textarea>
                   </label><br>
-                  <input type="submit" value="Add Details">
+                  <h3>Your Wish:</h3>
+                     <textarea name="selfWish" id="" cols="30" rows="10"></textarea>
+                  </label><br>
+                  <button type="submit" id="btn">Update</button>
                </form>
                <% } else { %>
                   Current Likes: <%= wish.likes.length %>
                   <!-- INSIDE THIS ELSE STATEMENT, ADD THE OPTION TO "LIKE" A WISH -->
                   <% if(wish.likes.toString().includes(user._id)) { %>
                      <form action="/wishes/deleteLike/<%= wish._id %>" method="POST">
-                     <input id = "liked"type="submit" value="Wish Liked!" >
-                  <% } else { %>
-                  <form action="/wishes/addLike/<%= wish._id %>" method="POST">
-                     <input type="submit" value="Like Wish" >
+                        <button type="submit" id="liked">Wish Liked!</button>
+                        <% } else { %>
+                        <form action="/wishes/addLike/<%= wish._id %>" method="POST">
+                           <input type="submit"  >
+                           <button type="submit" id="btn">Wish Liked!</button>
                   </form>
                   <%  } %>
                <% }%>
@@ -58,26 +59,45 @@
                <div class="circle">
                   <img src="/images/Virgo.png" alt="virgo">
                </div>
-               <h2>Full Moon in Virgo</h2>
+               <h2 class="currMoon">Full Moon in Virgo</h2>
+               <p id="nextMoon"></p>
                <% if(user){ %>
                   <h3>There are <%=wishes.length %> wishes in this Pool!</h3>
 
                <% } else { %>
 
                <% } %>
-               THIS IS THE POOL
+               <div class = "div">
         <% if(wishes.length){ %>
 
             <% wishes.forEach(w => { %>
                 
-                <li><a href="/wishes/<%= w._id %>"><%= w.poolWish %></a></li>
+                <li ><a class = "links" href="/wishes/<%= w._id %>"><%= w.poolWish %></a></li>
             <% }) %>
         <% } else { %>
             there are no wishes to display yet!
         <% } %>
+      </div>
    </div>
 </div>
 </div>
+<script> 
+   let deadline = new Date("Mar 9, 2020 13:48:00").getTime(); 
+   let x = setInterval(function() { 
+   let now = new Date().getTime(); 
+   let t = deadline - now; 
+   let days = Math.floor(t / (1000 * 60 * 60 * 24)); 
+   let hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60)); 
+   let minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60)); 
+   let seconds = Math.floor((t % (1000 * 60)) / 1000); 
+   document.getElementById("nextMoon").innerHTML = days + "d "  
+   + hours + "h " + minutes + "m " + seconds + "s "; 
+       if (t < 0) { 
+           clearInterval(x); 
+           document.getElementById("demo").innerHTML = "EXPIRED"; 
+       } 
+   }, 200); 
+   </script> 
 </body>
 
 </html>

@@ -27,7 +27,7 @@
       <div class="circle">
         <img src="/images/Virgo.png" alt="virgo">
     </div>
-    <h2>Full Moon in Virgo</h2>
+    <h2 class="currMoon">Full Moon in Virgo</h2>
     <p id="nextMoon"></p> 
     <div id="keywords">
     <li id="words">Diligence</li>
@@ -35,8 +35,11 @@
     <li class="words">Focus</li>
     <li id="lastWord" class="words">Solitude</li>
     </div>
-    <p id="moonDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita hic nobis tempore autem possimus provident. Itaque non magnam exercitationem recusandae ullam nulla maiores nesciunt ea similique, in, et debitis ratione!</p>
-  </div>
+      <div id="description">
+      <p id="moonDescription">1. This is a time to set goals related to self-discipline and self-control. Think of areas in your life where you can be more organized and process oriented. In what ways can you be more attentive to details </p>
+      <p id="moonDescription">2. This is also a time to consider where in your life you overthink things or in ways that you are over-obsessive.</p>
+      </div>
+    </div>
     </div>
       <% } %>
 
@@ -53,9 +56,9 @@
       + hours + "h " + minutes + "m " + seconds + "s "; 
           if (t < 0) { 
               clearInterval(x); 
-              document.getElementById("demo").innerHTML = "EXPIRED"; 
+              document.getElementById("nextMoon").innerHTML = "EXPIRED"; 
           } 
-      }, 1000); 
+      }, 200); 
       </script> 
   </body>
 </html>

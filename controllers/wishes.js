@@ -33,7 +33,7 @@ function deleteWish(req, res) {
     console.log(req.params)
     CurWish.deleteOne({_id: req.params.id}, function(err) {
         console.log('delete end')
-        res.redirect('/users');
+        res.redirect('/wishes');
     })
 }
 
