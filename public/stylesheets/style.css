@@ -13,6 +13,9 @@ h2 {
   font-size: 2.4vh;
   margin-bottom: .05vh;
 }
+h3 {
+  margin-top: 6px;
+}
 label {
   font-size: 1.7vh;
   font-weight: 500;
@@ -147,6 +150,15 @@ textarea{
   background-color: darkgrey;
   border: 1px solid rgb(7, 6, 6);
   font-size: 15px;
+  padding-top: 3px;
+}
+#btn2 {
+  width: 35%;
+  height: 30px;
+  background-color: orchid;
+  border: 1px solid rgb(7, 6, 6);
+  font-size: 15px;
+  padding-top: 3px;
 }
 #keywords {
   display: flex;
@@ -219,7 +231,7 @@ img {
   flex-direction: column;
   padding: 1.7vh 1.5vh 1.5vh 2.7vh;
 }
-#liked {
+.liked {
  background-color: yellow;
 }
 .intro {
@@ -230,6 +242,6 @@ img {
   margin: 15px 15px 20px 15px;
 }
 .links {
-  font-size: 1.7vh;
+  font-size: 1.9vh;
 
 }

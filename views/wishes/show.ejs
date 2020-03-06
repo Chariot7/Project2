@@ -42,11 +42,10 @@
                   <!-- INSIDE THIS ELSE STATEMENT, ADD THE OPTION TO "LIKE" A WISH -->
                   <% if(wish.likes.toString().includes(user._id)) { %>
                      <form action="/wishes/deleteLike/<%= wish._id %>" method="POST">
-                        <button type="submit" id="liked">Wish Liked!</button>
+                        <button type="submit" id = "btn2"class="liked">Wish Liked!</button>
                         <% } else { %>
                         <form action="/wishes/addLike/<%= wish._id %>" method="POST">
-                           <input type="submit"  >
-                           <button type="submit" id="btn">Wish Liked!</button>
+                           <button type="submit" id="btn">Like This Wish!</button>
                   </form>
                   <%  } %>
                <% }%>
@@ -72,7 +71,7 @@
 
             <% wishes.forEach(w => { %>
                 
-                <li ><a class = "links" href="/wishes/<%= w._id %>"><%= w.poolWish %></a></li>
+                <li ><a class = "links" href="/wishes/<%= w._id %>"><%= w.selfWish %></a></li>
             <% }) %>
         <% } else { %>
             there are no wishes to display yet!

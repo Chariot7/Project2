@@ -12,7 +12,7 @@
             <h3>There are <%=wishes.length %> wishes in this Pool!</h3>
             <% wishes.forEach(w => { %>
                 
-                <li><a href="/wishes/<%= w._id %>"><%= w.poolWish %></a></li>
+                <li><a href="/wishes/<%= w._id %>"><%= w.selfWish %></a></li>
             <% }) %>
         <% } else { %>
             there are no wishes to display yet!
@@ -23,7 +23,7 @@
         <h2>Wish Display</h2>
         <div>
         <% if(wishes.length) { %>
-            <h3>There are <%= wishes.length%> wishes that can be displayed here</h3>
+            <h3>Click on a wish to display it in this window</h3>
 
         <% } else { %>
             <h3>There are no wishes in this bank</h3>
@@ -43,9 +43,9 @@
         + hours + "h " + minutes + "m " + seconds + "s "; 
             if (t < 0) { 
                 clearInterval(x); 
-                document.getElementById("demo").innerHTML = "EXPIRED"; 
+                document.getElementById("nextMoon").innerHTML = "Full Moon!"; 
             } 
         }, 200); 
-        </script> 
+    </script> 
 </body>
 </html>
