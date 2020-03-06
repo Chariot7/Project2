@@ -11,6 +11,7 @@ h1 {
 }
 h2 {
   font-size: 3.5vh;
+  margin-bottom: .05vh;
 }
 .wishLabel {
   text-align: left;
@@ -200,4 +201,8 @@ img {
 }
 .intro {
   padding-left: 2vh;
+}
+#nextMoon {
+  font-size: 3vh;
+  margin: 15px 15px 20px 15px;
 }

@@ -28,6 +28,7 @@
         <img src="/images/Virgo.png" alt="virgo">
     </div>
     <h2>Full Moon in Virgo</h2>
+    <p id="nextMoon"></p> 
     <div id="keywords">
     <li id="words">Diligence</li>
     <li class="words">Organization</li>
@@ -35,9 +36,26 @@
     <li id="lastWord" class="words">Solitude</li>
     </div>
     <p id="moonDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita hic nobis tempore autem possimus provident. Itaque non magnam exercitationem recusandae ullam nulla maiores nesciunt ea similique, in, et debitis ratione!</p>
+  </div>
     </div>
-    </div>
-    <p><%= dateKeeper %></p>
       <% } %>
+
+      <script> 
+      let deadline = new Date("Mar 9, 2020 13:48:00").getTime(); 
+      let x = setInterval(function() { 
+      let now = new Date().getTime(); 
+      let t = deadline - now; 
+      let days = Math.floor(t / (1000 * 60 * 60 * 24)); 
+      let hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60)); 
+      let minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60)); 
+      let seconds = Math.floor((t % (1000 * 60)) / 1000); 
+      document.getElementById("nextMoon").innerHTML = days + "d "  
+      + hours + "h " + minutes + "m " + seconds + "s "; 
+          if (t < 0) { 
+              clearInterval(x); 
+              document.getElementById("demo").innerHTML = "EXPIRED"; 
+          } 
+      }, 1000); 
+      </script> 
   </body>
 </html>
