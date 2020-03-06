@@ -20,11 +20,18 @@
       <a href="/auth/google" class="nav-link" id="red">Login with Google</a>
       <% } %>
     </li>
-    <li class="nav"><a href="/users/reflection" class="nav-link">Reflection</a></li>
+    <% if (user) { %>
     <li class="nav"><a href="/wishes" class="nav-link">Wish Bank</a></li>
     <li class="nav"><a href="/users" class="nav-link">Home</a></li>
-  </ul>
+    <% } else { %>
+      <li class="nav2"><a href="" class="nav-link2">Wish Bank</a></li>
+      <li class="nav2"><a href="" class="nav-link2">Home</a></li>
+      <% } %>
+    </ul>
   <hr>
   <% if (user) { %>
   <p id="welcome">Welcome <%= user.name %></p>
-  <% } %>
+  <% } else { %>
+    <h2 class="intro">Welcome to the virtual wishing well</h2>
+    <a class= "intro" href= "/auth/google">Log In to Continue</a>
+    <% } %>

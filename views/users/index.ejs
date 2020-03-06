@@ -1,8 +1,6 @@
 <%- include('../partials/header') %>
   
       <% if (user) { %>
-        
-        
         <div id="rect">
         <form id="add-wish" method="POST"
         action="/wishes">
@@ -20,7 +18,7 @@
           <textarea name="selfWish" id="selfWish" cols="30" rows="10"></textarea>
         </div>
         <div id="button">
-        <input id="btn" type="submit" value="Add Details">
+        <button id="btn" type="submit">Add Wish</button>
         </div>
       </form>
     </div>
@@ -39,10 +37,7 @@
     <p id="moonDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita hic nobis tempore autem possimus provident. Itaque non magnam exercitationem recusandae ullam nulla maiores nesciunt ea similique, in, et debitis ratione!</p>
     </div>
     </div>
-      <% } else { %>
-        <p>Log In to Continue
-        </p>
+    <p><%= dateKeeper %></p>
       <% } %>
-
   </body>
 </html>

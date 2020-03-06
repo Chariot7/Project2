@@ -68,7 +68,7 @@ ul {
   right: 2%
   /* width: 100%; */
 }
-.nav {
+.nav, .nav2 {
   float: right;
 }
 textarea{
@@ -77,7 +77,7 @@ textarea{
   text-align: center;
 }
 
-.nav-link {
+.nav-link, .nav-link2 {
   display: block;
   padding: 31px 15px;
   color: rgb(7, 6, 6);
@@ -87,6 +87,10 @@ textarea{
   font-size: 1.4em;
   
   /* border-left: 1px solid #bbb; */
+}
+
+.nav-link2 {
+  color: lightgrey;
 }
 #welcome {
   position: fixed;
@@ -176,10 +180,12 @@ textarea{
   font-size: 1.8vh;
 }
 #selfWish{
-  height: 50%;
+  height: 20vh;
+  font-size: 2.5vh;
 }
 #poolWish {
-  height: 15%;
+  height: 7vh;
+  font-size: 2.5vh;
 }
 img {
   height: 12vh;
@@ -191,4 +197,7 @@ img {
 }
 #liked {
  background-color: yellow;
+}
+.intro {
+  padding-left: 2vh;
 }
