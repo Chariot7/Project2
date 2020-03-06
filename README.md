@@ -22,7 +22,7 @@
 
 
 ## Technologies Used
-CSS, JavaScript, Express, Moongoose, Heroku
+CSS, JavaScript, Express, Moongoose, Heroku, Node JS, MongoDB, Atlas
 ​
 ## Getting Started
 [Click to create a Wish!]: https://wish-pool.herokuapp.com/
@@ -30,7 +30,9 @@ CSS, JavaScript, Express, Moongoose, Heroku
 ​
 [Click for repo]: https://github.com/Chariot7/Project2
 [Click for repo]
-​
+
+[click for Notion]:https://www.notion.so/6d238284088f4534a86fccbadc0ab036?v=97c69cdc1c3448db85c2bf5326475c9b
+​[click for Notion]
 ## Ice Box
 - Add functions that manipulate the data at the time of the Full Moon.
 - have an anonymous checkbox that users can upload a wish that cannot be viewed by others. 
