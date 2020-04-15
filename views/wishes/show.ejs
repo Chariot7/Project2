@@ -1,86 +1,94 @@
 <%- include('../partials/header') %>
-<div id="rect2">
-   <div id="rect2inner">
+<div>
+   <p><%= wish.poolWish %></p>
+</div>
+</label><br>
+</div>
+</div>
+<% if(user){ %>
+   <h3>There are <%=wishes.length %> wishes in this Pool!</h3>
+   
+   <% } else { %>
       
-         <% if(!!wisher){ %>
-
-            <h2 id="p2h2"><%= wisher.name %>'s Current Wish</h2>
-         <% } else { %>
-
-         <% } %>
-         <h3>Pool Wish:</h3>
-            <div>
-               <p><%= wish.poolWish %></p>
-            </div>
-         </label><br>
-         <h3 >Your Wish:</h3>
-            <div>
-               <p><%= wish.selfWish %></p>
-            </div>
-         </label><br>
-         <% if(user){ %>
-
-            <% if(user.wishes.toString().includes(wish._id.toString())){ %>
-               
-               <form action="/wishes/<%= wish._id %>?_method=DELETE" id="delete-form" method="POST">
-                  <button type="submit" id="btn">Delete Wish</button>
-               </form>
-               <!-- <div> -->
-               </form>
-               <h2>Change Your Wish Below</h2>
-               <form action="/wishes/<%= wish._id %>?_method=PUT" method="POST">
-                  <h3>Pool Wish:</h3>
-                     <textarea name="poolWish" id="" cols="30" rows="10"></textarea>
-                  </label><br>
-                  <h3>Your Wish:</h3>
-                     <textarea name="selfWish" id="" cols="30" rows="10"></textarea>
-                  </label><br>
-                  <button type="submit" id="btn">Update</button>
-               </form>
-               <% } else { %>
-                  Current Likes: <%= wish.likes.length %>
-                  <!-- INSIDE THIS ELSE STATEMENT, ADD THE OPTION TO "LIKE" A WISH -->
-                  <% if(wish.likes.toString().includes(user._id)) { %>
-                     <form action="/wishes/deleteLike/<%= wish._id %>" method="POST">
-                        <button type="submit" id = "btn2"class="liked">Wish Liked!</button>
-                        <% } else { %>
-                        <form action="/wishes/addLike/<%= wish._id %>" method="POST">
-                           <button type="submit" id="btn">Like This Wish!</button>
-                  </form>
-                  <%  } %>
-               <% }%>
-               <% }%>
-               </div>
-            </div>
-         </div>
-         <div id="outerInfo2">
-            <div id="info2">
-               <div class="circle">
-                  <img src="/images/Virgo.png" alt="virgo">
-               </div>
-               <h2 class="currMoon">Full Moon in Virgo</h2>
-               <p id="nextMoon"></p>
-               <% if(user){ %>
-                  <h3>There are <%=wishes.length %> wishes in this Pool!</h3>
-
-               <% } else { %>
-
-               <% } %>
-               <div class = "div">
-        <% if(wishes.length){ %>
-
+      <% } %>
+      <div class = "div">
+         <% if(wishes.length){ %>
+            
             <% wishes.forEach(w => { %>
-                
-                <li ><a class = "links" href="/wishes/<%= w._id %>"><%= w.selfWish %></a></li>
-            <% }) %>
-        <% } else { %>
-            there are no wishes to display yet!
-        <% } %>
-      </div>
-   </div>
-</div>
-</div>
-<script> 
+               <div id="rect2">
+                  <div id="rect2inner">
+                     
+                     <% if(!!wisher){ %>
+                        <% wishes.forEach(w => { %>
+                           for(let i = 0; i < w; i++)
+                           
+                           <li ><a class = "links" href="/wishes/<%= w._id %>"><%= w.selfWish %></a></li>
+                           <h2 id="p2h2"><%= wisher.name %>'s Current Wish</h2>
+                           <% }) %>
+                           <% } else { %>
+                              
+                              <% } %>
+                              <h3>Pool Wish:</h3>
+                              <div id="outerInfo2">
+                                 <div id="info2">
+                                    <div class="circle">
+                                       <img src="/images/Virgo.png" alt="virgo">
+                                    </div>
+                                    <p id="nextMoon"></p>
+                                    <h3 >Your Wish:</h3>
+                                    <div>
+                                       <p><%= wish.selfWish %></p>
+                                    </div>
+                                    </label><br>
+                                    <% if(user){ %>
+                                       
+                                       <% if(user.wishes.toString().includes(wish._id.toString())){ %>
+                                          
+                                          <form action="/wishes/<%= wish._id %>?_method=DELETE" id="delete-form" method="POST">
+                                             <button type="submit" id="btn">Delete Wish</button>
+                                          </form>
+                                          <!-- <div> -->
+                                          </form>
+                                          <% wishes.forEach(w => { %>
+                                             
+                                             <li ><a class = "links" href="/wishes/<%= w._id %>"><%= w.selfWish %></a></li>
+                                             <h2>Change Your Wish Below</h2>
+                                             <% }) %>
+                                             <form action="/wishes/<%= wish._id %>?_method=PUT" method="POST">
+                                                <h3>Pool Wish:</h3>
+                                                <textarea name="poolWish" id="" cols="30" rows="10"></textarea>
+                                             </label><br>
+                                             <h3>Your Wish:</h3>
+                                             <textarea name="selfWish" id="" cols="30" rows="10"></textarea>
+                                          </label><br>
+                                          <button type="submit" id="btn">Update</button>
+                                       </form>
+                                       <% } else { %>
+                                          Current Likes: <%= wish.likes.length %>
+                                          <!-- INSIDE THIS ELSE STATEMENT, ADD THE OPTION TO "LIKE" A WISH -->
+                                          <% if(wish.likes.toString().includes(user._id)) { %>
+                                             <form action="/wishes/deleteLike/<%= wish._id %>" method="POST">
+                                                <button type="submit" id = "btn2"class="liked">Wish Liked!</button>
+                                                <% } else { %>
+                                                   <form action="/wishes/addLike/<%= wish._id %>" method="POST">
+                                                      <button type="submit" id="btn">Like This Wish!</button>
+                                                   </form>
+                                                   <%  } %>
+                                                   <% }%>
+                                                   <% }%>
+                                                </div>
+                                    
+                                    <li ><a class = "links" href="/wishes/<%= w._id %>"><%= w.selfWish %></a></li>
+                                    <h2 class="currMoon">Full Moon in Virgo</h2>
+                                    <% }) %>
+                                    <% } else { %>
+                                       there are no wishes to display yet!
+                                       <% } %>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <script> 
    let deadline = new Date("Mar 9, 2020 13:48:00").getTime(); 
    let x = setInterval(function() { 
    let now = new Date().getTime(); 

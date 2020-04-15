@@ -2,9 +2,18 @@ body {
   margin: .1em;
   padding: .1em;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  animation: rotation 12s infinite linear;
 }
 #red {
   color: red;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
 h1 {
   font-weight: none;
@@ -21,7 +30,8 @@ label {
   font-weight: 500;
 }
 h4 {
-  margin: 10px
+  margin: 10px;
+  animation: rotation 2s infinite linear;
 }
 .currMoon {
   font-size: 3.7vh;
@@ -42,6 +52,7 @@ h4 {
   border: 1px solid rgb(7, 6, 6);
   text-align: left;
   padding-left: 1.5vh;
+  animation: rotation 2s infinite linear;
 }
 #p2h2 {
   margin: 0px;

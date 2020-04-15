@@ -6,7 +6,6 @@ const userSchema = new mongoose.Schema({
     email: String,
     googleId: String,
     wishes: [{type: Schema.Types.ObjectId, ref: 'Wish'}],
-
     // reflectionHistory: String,
     // wishHistory: String,
 }, {
